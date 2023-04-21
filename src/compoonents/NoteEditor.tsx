@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import CodeMirror from "@uiw/react-codemirror";
 import { markdown, markdownLanguage } from "@codemirror/lang-markdown";
 import { languages } from "@codemirror/language-data";
+import { dracula } from "@uiw/codemirror-theme-dracula";
 
 export const NoteEditor = ({
   onSave,
@@ -16,6 +17,7 @@ export const NoteEditor = ({
     setTitle("");
     setCode("");
   }
+
   return (
     <div className="card border border-gray-700 bg-base-100 shadow-xl">
       <div className="card-body">
@@ -30,7 +32,8 @@ export const NoteEditor = ({
         </h2>
         <CodeMirror
           value={code}
-          width={"500px"}
+          width={"300px"}
+          color="red"
           height="30vh"
           minWidth="100%"
           minHeight="30vh"
@@ -38,7 +41,8 @@ export const NoteEditor = ({
             markdown({ base: markdownLanguage, codeLanguages: languages }),
           ]}
           onChange={(value) => setCode(value)}
-          className="border border-gray-600"
+          className="whitespace-pre-wrap break-words rounded-md border border-slate-600"
+          theme={dracula}
         />
       </div>
       <div className="card-actions justify-end">

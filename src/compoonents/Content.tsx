@@ -50,8 +50,8 @@ const Content: React.FC = () => {
   });
 
   return (
-    <div className="mx-5 mt-5 grid grid-cols-4 gap-10">
-      <div className="col-span-1 max-w-xl px-2">
+    <div className="mx-5 mt-5 flex flex-col-reverse gap-10 md:grid-cols-4 md:flex-row">
+      <div className="max-w-xl flex-[0.25] px-2">
         <input
           type="text"
           placeholder="New Topic"
@@ -86,7 +86,7 @@ const Content: React.FC = () => {
           })}
         </ul>
       </div>
-      <div className="col-span-3">
+      <div className="flex-[0.75]">
         <div>
           {notes?.map((note) => {
             return (
